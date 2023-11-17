@@ -17,28 +17,17 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/Tabel', function () {
-    return view('Tabel');
-});
-
-
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/product', function () {
+    $kode_produk = ['BRG001', 'BRG002'];
+    $nama_produk = ['Pena', 'Buku'];
+    $jenis_produk = ['Alat Tulis', 'Alat Tulis'];
+    $harga = [20000, 15000];
+    $jumlah = count($harga);
+    return view('product', compact('harga', 'jumlah', 'nama_produk', 'kode_produk', 'jenis_produk'));
 });
 
 Route::get('/form', function () {
-    return view('form');
-});
-
-Route::get('/mahasiswa', function () {
-    return view('mahasiswa');
-});
-
-Route::get('/tabel', function () {
-    $npm = [2109020134, 2109020120, 2109020166, 2109020144, 2109020134];
-    $nama = ['despa', 'wahyu', 'andika', 'Raka', 'roby'];
-    $jurusan = ['Teknologi Informasi', 'Sistem Informasi', 'Data Sains', 'Sistem Informasi', 'Data Sains'];
-    $kelas = ['E1', 'C1', 'D1', 'A1', 'B1'];
-    $jumlah = count($npm);
-    return view('tabel', compact('npm', 'jumlah', 'nama', 'jurusan', 'kelas'));
+    $jenis_produk = ['Pilih Produk', 'Alat Tulis', 'Elektronik', 'Sembako'];
+    $jumlah = count($jenis_produk);
+    return view('form', compact('jumlah', 'jenis_produk'));
 });
